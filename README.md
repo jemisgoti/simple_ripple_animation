@@ -22,12 +22,11 @@ RippleAnimation(
 ## Preview
 Mobile view
 <div class="display:inline-block">
-        <img src="https://github.com/jemisgoti/simple_ripple_animation/example/gif/mobile.gif
-" class="display:inline-block" height="650"/>
+        <img src="https://github.com/jemisgoti/simple_ripple_animation/example/gifs/mobile.gif" class="display:inline-block" height="650"/>
 <br>
 Desktop View
 <br>
-        <img src="https://github.com/jemisgoti/simple_ripple_animation/example/gif/web.gif" class="display:inline-block" height="650" />
+        <img src="https://github.com/jemisgoti/simple_ripple_animation/example/gifs/web.gif" class="display:inline-block" height="650" />
 </div>
 
 ## Contributing
