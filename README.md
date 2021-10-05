@@ -1,6 +1,6 @@
-#Simple Ripple Animation
+## Simple Ripple Animation
 
-Simple and customizable ripple animation for flutter app!
+Simple and customizable ripple animation for flutter app! Check out our preview gifs for a view of what simple ripple animation can do.
 
 ## Installation
 
@@ -12,17 +12,22 @@ Use the package manager [pub](https://pub.dev/) to install rippleanimation.
 
 ```dart
 RippleAnimation(
-  repeat: false,
+  repeat: true,
   color: Colors.blue,
-  minRadius: 100,
+  minRadius: 90,
   ripplesCount: 6,
   child: Container()
 ),
 ```
 ## Preview
+Mobile view
 <div class="display:inline-block">
-        <img src="https://github.com/Emadeddin-eibo/ripple_animation/raw/master/1.gif" class="display:inline-block" height="650"/>
-        <img src="https://github.com/Emadeddin-eibo/ripple_animation/raw/master/2.gif" class="display:inline-block" height="650"/>
+        <img src="https://github.com/jemisgoti/simple_ripple_animation/example/gif/mobile.gif
+" class="display:inline-block" height="650"/>
+<br>
+Desktop View
+<br>
+        <img src="https://github.com/jemisgoti/simple_ripple_animation/example/gif/web.gif" class="display:inline-block" height="650" />
 </div>
 
 ## Contributing
