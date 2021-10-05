@@ -22,7 +22,7 @@ RippleAnimation(
 ## Preview
 Mobile view
 <div class="display:inline-block">
-        <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/6e4e18563cc373173d8564eb040550727dce7c9f/example/gifs/mobile.gif" class="display:inline-block" height="650"/>
+        <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/example/gifs/mobile.gif" class="display:inline-block" height="650"/>
 <br>
 <br>
 Desktop View

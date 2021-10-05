@@ -1,6 +1,6 @@
 name: simple_ripple_animation
 description: Simple and customizable ripple animation for flutter app! Check out our preview gifs for a view of what simple ripple animation can do.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/jemisgoti/simple_ripple_animation
 
 environment:
