@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// You can use whatever widget as a [child], when you don't need to provide any
@@ -8,30 +7,45 @@ import 'package:flutter/material.dart';
 /// [delay] is using a [Timer] for delaying the animation, it's zero by default.
 /// You can set [repeat] to true for making a paulsing effect.
 class RippleAnimation extends StatefulWidget {
-  final Widget child;
-  final Duration delay;
-  final double minRadius;
-  Color color = Colors.black;
-  final int ripplesCount;
-  final Duration duration;
-  final bool repeat;
-
-  RippleAnimation({
-    Key? key,
+  ///initialize the ripple animation
+  const RippleAnimation({
     required this.child,
-    required this.color,
-    this.delay = const Duration(milliseconds: 0),
+    this.color = Colors.black,
+    this.delay = const Duration(),
     this.repeat = false,
     this.minRadius = 60,
     this.ripplesCount = 5,
     this.duration = const Duration(milliseconds: 2300),
+    Key? key,
   }) : super(key: key);
 
+  ///[Widget] this widget will placed at center of the animation
+  final Widget child;
+
+  ///[Duration] delay of the animation
+  final Duration delay;
+
+  /// [double] minimum radius of the animation
+  final double minRadius;
+
+  /// [Color] color of the animation
+  final Color color;
+
+  /// [int] number of circle that u want to display in the animation
+  final int ripplesCount;
+
+  /// [Duration]  of the animation
+  final Duration duration;
+
+  /// [bool] provide true if u want repeat ani9mation
+  final bool repeat;
+
   @override
-  _RippleAnimationState createState() => _RippleAnimationState();
+  RippleAnimationState createState() => RippleAnimationState();
 }
 
-class _RippleAnimationState extends State<RippleAnimation>
+///state of the animation
+class RippleAnimationState extends State<RippleAnimation>
     with TickerProviderStateMixin {
   AnimationController? _controller;
 
@@ -51,17 +65,15 @@ class _RippleAnimationState extends State<RippleAnimation>
   }
 
   @override
-  Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: CirclePainter(
-        _controller,
-        color: widget.color,
-        minRadius: widget.minRadius,
-        wavesCount: widget.ripplesCount + 2,
-      ),
-      child: widget.child,
-    );
-  }
+  Widget build(BuildContext context) => CustomPaint(
+        painter: CirclePainter(
+          _controller,
+          color: widget.color,
+          minRadius: widget.minRadius,
+          wavesCount: widget.ripplesCount + 2,
+        ),
+        child: widget.child,
+      );
 
   @override
   void dispose() {
@@ -70,38 +82,49 @@ class _RippleAnimationState extends State<RippleAnimation>
   }
 }
 
-// Creating a Circular painter for clipping the rects and creating circle shapes
+/// Creating a Circular painter for clipping the rects and creating circle shape
 class CirclePainter extends CustomPainter {
+  ///initialize the painter
   CirclePainter(
     this._animation, {
-    this.minRadius,
-    this.wavesCount,
+    required this.wavesCount,
     required this.color,
+    this.minRadius,
   }) : super(repaint: _animation);
+
+  ///[Color] of the painter
   final Color color;
+
+  ///[double] minimum radius of the painter
   final double? minRadius;
-  final wavesCount;
+
+  ///[int] number of wave count in the animation
+  final int wavesCount;
+
+  ///[Color] of the painter
   final Animation<double>? _animation;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
+    final Rect rect = Rect.fromLTRB(0, 0, size.width, size.height);
     for (int wave = 0; wave <= wavesCount; wave++) {
-      circle(canvas, rect, minRadius, wave, _animation!.value, wavesCount);
+      circle(
+          canvas, rect, minRadius, wave, _animation!.value, wavesCount, color);
     }
   }
 
-  // animating the opacity according to min radius and waves count.
+  /// animating the opacity according to min radius and waves count.
   void circle(Canvas canvas, Rect rect, double? minRadius, int wave,
-      double value, int? length) {
-    Color _color;
+      double value, int? length, Color circleColor) {
+    Color color = circleColor;
     double r;
     if (wave != 0) {
-      double opacity = (1 - ((wave - 1) / length!) - value).clamp(0.0, 1.0);
-      _color = color.withOpacity(opacity);
+      final double opacity =
+          (1 - ((wave - 1) / length!) - value).clamp(0.0, 1.0);
+      color = color.withOpacity(opacity);
 
-      r = minRadius! * (1 + ((wave * value))) * value;
-      final Paint paint = Paint()..color = _color;
+      r = minRadius! * (1 + (wave * value)) * value;
+      final Paint paint = Paint()..color = color;
       canvas.drawCircle(rect.center, r, paint);
     }
   }

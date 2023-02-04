@@ -1,40 +1,115 @@
+<!--
+This README describes the package. If you publish this package to pub.dev,
+this README's contents appear on the landing page for your package.
+
+For information about how to write a good package README, see the guide for
+[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+
+For general information about developing packages, see the Dart guide for
+[creating packages](https://dart.dev/guides/libraries/create-library-packages)
+and the Flutter guide for
+[developing packages and plugins](https://flutter.dev/developing-packages).
+-->
+
+<img src="readme_assets/banner.png"/>
+
 ## Simple Ripple Animation
-
-Simple and customizable ripple animation for flutter app! Check out our preview gifs for a view of what simple ripple animation can do.
-
-## Installation
-
-Use the package manager [pub](https://pub.dev/) to install rippleanimation.
+This package provide ripple animation widget that can be customised to meet your needs. It's easy to set up and customize, and it looks beautiful in any color you choose.
 
 
-## Usage
+# Features
+
+This package support following parameter and methods.
+
+## Parameter
+`RippleAnimation`widget provide follwoing parameter to config your ripple animation effect.
+
+Parameter defined for `RippleAnimation` widget:
+
+| Name | Type | Description |
+|------|------------|-------------|
+| child | Widget | This child will be placed at center of the animation. |
+| delay | Duration | This will be delay between two ripple wave. |
+| minRadius | int | Minimum radius of the ripple wave. |
+| color | Color | Color of the animation. |
+| ripplesCount | int | number of rippleCount in the wave. |
+| duration | Duration | duration of the animation |
+| repeat | bool | Provide true if you want to repeat animation |
 
 
-```dart
-RippleAnimation(
-  repeat: true,
-  color: Colors.blue,
-  minRadius: 90,
-  ripplesCount: 6,
-  child: Container()
-),
-```
-## Preview
-Mobile view
-<div class="display:inline-block">
-        <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/example/gifs/mobile.gif" class="display:inline-block" height="650"/>
-<br>
-<br>
-Desktop View
-<br>
-<br>
-        <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/6e4e18563cc373173d8564eb040550727dce7c9f/example/gifs/web.gif" class="display:inline-block" height="650" width="1160" />
-</div>
+# Getting started
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Installing
 
-Please make sure to update tests as appropriate.
+1. Add dependencies to `pubspec.yaml`
 
-## License
-[BSD](https://opensource.org/licenses/BSD-3-Clause/)
+   Get the latest version in the 'Installing' tab
+   on [pub.dev](https://pub.dev/packages/simple_ripple_animation/install)
+
+    ```yaml
+    dependencies:
+        simple_ripple_animation: <latest-version>
+    ```
+
+2. Run pub get.
+
+   ```shell
+   flutter pub get
+   ```
+
+3. Import package.
+
+    ```dart
+    import 'package:simple_ripple_animation/simple_ripple_animation.dart';
+    ```
+
+## Implementation
+
+1. Wrap `Widget` with `RippleAnimation` and assign needed parameter.
+
+    ```dart
+             RippleAnimation(
+                child: CircleAvatar(
+                  minRadius: 75,
+                  maxRadius: 75,
+                  backgroundImage: NetworkImage(Constants.avtarUrl),
+                ),
+                color: Colors.deepOrange,
+                delay: const Duration(milliseconds: 300),
+                repeat: true,
+                minRadius: 75,
+                ripplesCount: 6,
+                duration: const Duration(milliseconds: 6 * 300),
+              )
+    ```
+
+ 
+
+
+
+# Preview
+
+## Screenshot
+TODO: Here is the few screenshot for the preview. This will be remove in new verison becuase pub.dev now support screenshot.
+<table>
+  <tr>
+       <td align="center"> <img src="readme_assets/image1.png" height="500px"  alt=""/><br /><sub><b>Mobile</b></sub> </td>     
+         <td align="center"> <img src="readme_assets/tab.png"   alt=""/><br /><sub><b>Tablet</b></sub> </td>  </tr>   
+           <tr>
+       <td align="center"> <img src="readme_assets/desktop.png"   alt=""/><br /><sub><b>Desktop</b></sub> </td>     
+         <td align="center"> <img src="readme_assets/web.png"   alt=""/><br /><sub><b>Web</b></sub> </td>  </tr> 
+      
+</table>
+
+## Main Contributors
+<table>
+  <tr>
+       <td align="center"><a href="https://github.com/vatsaltanna"><img src="https://avatars.githubusercontent.com/u/46031164" width="100px;" alt=""/><br /><sub><b>Jemis Goti</b></sub></a></td>
+ 
+</tr>
+</table>
+<br/>
+
+## Thanks
+
+Thank you for using this package and keep supporting opensource community.

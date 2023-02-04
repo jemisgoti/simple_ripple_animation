@@ -1,3 +1,4 @@
-## 0.0.3
+## 0.0.4
 
-* TODO: gif changed
+* RippleAnimation widget is now immutable
+* It want rebuild every time
