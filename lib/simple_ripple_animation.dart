@@ -11,13 +11,13 @@ class RippleAnimation extends StatefulWidget {
   const RippleAnimation({
     required this.child,
     this.color = Colors.black,
-    this.delay = const Duration(),
+    this.delay = Duration.zero,
     this.repeat = false,
     this.minRadius = 60,
     this.ripplesCount = 5,
     this.duration = const Duration(milliseconds: 2300),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   ///[Widget] this widget will placed at center of the animation
   final Widget child;
@@ -56,29 +56,37 @@ class RippleAnimationState extends State<RippleAnimation>
       vsync: this,
     );
 
-    // repeating or just forwarding the animation once.
-    Timer(widget.delay, () {
-      widget.repeat ? _controller?.repeat() : _controller?.forward();
+    Timer? animationTimer;
+
+    animationTimer = Timer(widget.delay, () {
+      if (_controller != null && mounted) {
+        // repeating or just forwarding the animation once.
+        widget.repeat ? _controller!.repeat() : _controller!.forward();
+      }
+      // Cancel the timer when it's no longer needed.
+      animationTimer?.cancel();
     });
 
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context) => CustomPaint(
-        painter: CirclePainter(
-          _controller,
-          color: widget.color,
-          minRadius: widget.minRadius,
-          wavesCount: widget.ripplesCount + 2,
-        ),
-        child: widget.child,
-      );
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
 
   @override
-  void dispose() {
-    _controller!.dispose();
-    super.dispose();
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: CirclePainter(
+        _controller,
+        color: widget.color,
+        minRadius: widget.minRadius,
+        wavesCount: widget.ripplesCount + 2,
+      ),
+      child: widget.child,
+    );
   }
 }
 
@@ -86,11 +94,11 @@ class RippleAnimationState extends State<RippleAnimation>
 class CirclePainter extends CustomPainter {
   ///initialize the painter
   CirclePainter(
-    this._animation, {
+    this.animation, {
     required this.wavesCount,
     required this.color,
     this.minRadius,
-  }) : super(repaint: _animation);
+  }) : super(repaint: animation);
 
   ///[Color] of the painter
   final Color color;
@@ -102,14 +110,14 @@ class CirclePainter extends CustomPainter {
   final int wavesCount;
 
   ///[Color] of the painter
-  final Animation<double>? _animation;
+  final Animation<double>? animation;
 
   @override
   void paint(Canvas canvas, Size size) {
     final Rect rect = Rect.fromLTRB(0, 0, size.width, size.height);
     for (int wave = 0; wave <= wavesCount; wave++) {
       circle(
-          canvas, rect, minRadius, wave, _animation!.value, wavesCount, color);
+          canvas, rect, minRadius, wave, animation!.value, wavesCount, color);
     }
   }
 
