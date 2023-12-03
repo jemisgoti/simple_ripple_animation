@@ -1,4 +1,3 @@
-## 0.0.4
+## 0.0.8
 
-* RippleAnimation widget is now immutable
-* It want rebuild every time
+* Disposing before stop events has been fixed

@@ -28,18 +28,18 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RippleAnimation(
-                child: CircleAvatar(
-                  minRadius: 75,
-                  maxRadius: 75,
-                  backgroundImage: NetworkImage(Constants.avtarUrl),
-                ),
                 color: Colors.deepOrange,
                 delay: const Duration(milliseconds: 300),
                 repeat: true,
                 minRadius: 75,
                 ripplesCount: 6,
                 duration: const Duration(milliseconds: 6 * 300),
-              )
+                child: CircleAvatar(
+                  minRadius: 75,
+                  maxRadius: 75,
+                  backgroundImage: NetworkImage(Constants.avtarUrl),
+                ),
+              ),
             ],
           ),
         ),

@@ -1,6 +1,6 @@
 
 
-<img src="readme_assets/banner.png"/>
+<img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/banner.png"/>
 
 ## Simple Ripple Animation
 This package provide ripple animation widget that can be customised to meet your needs. It's easy to set up and customize, and it looks beautiful in any color you choose.
@@ -82,18 +82,19 @@ Parameter defined for `RippleAnimation` widget:
 TODO: Here is the few screenshot for the preview. This will be remove in new verison becuase pub.dev now support screenshot.
 <table>
   <tr>
-       <td align="center"> <img src="readme_assets/image1.png" height="500px"  alt=""/><br /><sub><b>Mobile</b></sub> </td>     
-         <td align="center"> <img src="readme_assets/tab.png"   alt=""/><br /><sub><b>Tablet</b></sub> </td>  </tr>   
+       <td align="center"> <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/image1.png" height="500px"  alt=""/><br /><sub><b>Mobile</b></sub> </td>     
+         <td align="center"> <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/tab.png"   alt=""/><br /><sub><b>Tablet</b></sub> </td>  </tr>   
            <tr>
-       <td align="center"> <img src="readme_assets/desktop.png"   alt=""/><br /><sub><b>Desktop</b></sub> </td>     
-         <td align="center"> <img src="readme_assets/web.png"   alt=""/><br /><sub><b>Web</b></sub> </td>  </tr> 
+       <td align="center"> <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/desktop.png"   alt=""/><br /><sub><b>Desktop</b></sub> </td>     
+         <td align="center"> <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/web.png"   alt=""/><br /><sub><b>Web</b></sub> </td>  </tr> 
       
 </table>
 
 ## Main Contributors
 <table>
   <tr>
-       <td align="center"><a href="https://github.com/vatsaltanna"><img src="https://avatars.githubusercontent.com/u/46031164" width="100px;" alt=""/><br /><sub><b>Jemis Goti</b></sub></a></td>
+       <td align="center"><a href="https://github.com/jemisgoti"><img src="https://avatars.githubusercontent.com/u/46031164" width="100px;" height="100px;" alt=""/><br /><sub><b>Jemis Goti</b></sub></a></td>
+      <td align="center"><a href="https://github.com/furkanarslann"><img src="https://avatars.githubusercontent.com/u/75033711?v=4 width="100px;" height="100px;" alt=""/><br /><sub><b>Furkan Arslan</b></sub></a></td>
  
 </tr>
 </table>
