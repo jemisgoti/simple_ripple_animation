@@ -1,10 +1,13 @@
 name: simple_ripple_animation
 description: This package provide ripple animation widget that is easy to set up and customise, and it looks beautiful in any color you choose.
-version: 0.0.8
+version: 0.0.9
 homepage: https://github.com/jemisgoti/simple_ripple_animation
+repository: https://github.com/jemisgoti/simple_ripple_animation
+issue_tracker: https://github.com/jemisgoti/simple_ripple_animation/issues
+documentation: https://jemisgoti.github.io/simple_ripple_animation
 
 environment:
-  sdk: '>=3.1.3 <4.0.0'
+  sdk: ">=2.17.0 <4.0.0"
   flutter: ">=1.17.0"
   
 

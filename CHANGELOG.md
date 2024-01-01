@@ -1,3 +1,3 @@
-## 0.0.8
+## 0.0.9
 
-* Disposing before stop events has been fixed
+* Minimum dart version revert back to 2.17.0

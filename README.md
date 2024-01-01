@@ -1,8 +1,9 @@
-
-
-<img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/banner.png"/>
+<img src="readme_assets/banner.png"/>
 
 ## Simple Ripple Animation
+[![style: very good analysis][hyper_lint_badge]][hyper_lint_link]
+[![License: MIT][license_badge]][license_link]
+
 This package provide ripple animation widget that can be customised to meet your needs. It's easy to set up and customize, and it looks beautiful in any color you choose.
 
 
@@ -82,11 +83,11 @@ Parameter defined for `RippleAnimation` widget:
 TODO: Here is the few screenshot for the preview. This will be remove in new verison becuase pub.dev now support screenshot.
 <table>
   <tr>
-       <td align="center"> <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/image1.png" height="500px"  alt=""/><br /><sub><b>Mobile</b></sub> </td>     
-         <td align="center"> <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/tab.png"   alt=""/><br /><sub><b>Tablet</b></sub> </td>  </tr>   
+       <td align="center"> <img src="readme_assets/image1.png" height="500px"  alt=""/><br /><sub><b>Mobile</b></sub> </td>     
+         <td align="center"> <img src="readme_assets/tab.png"   alt=""/><br /><sub><b>Tablet</b></sub> </td>  </tr>   
            <tr>
-       <td align="center"> <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/desktop.png"   alt=""/><br /><sub><b>Desktop</b></sub> </td>     
-         <td align="center"> <img src="https://github.com/jemisgoti/simple_ripple_animation/raw/main/readme_assets/web.png"   alt=""/><br /><sub><b>Web</b></sub> </td>  </tr> 
+       <td align="center"> <img src="readme_assets/desktop.png"   alt=""/><br /><sub><b>Desktop</b></sub> </td>     
+         <td align="center"> <img src="readme_assets/web.png"   alt=""/><br /><sub><b>Web</b></sub> </td>  </tr> 
       
 </table>
 
@@ -94,7 +95,7 @@ TODO: Here is the few screenshot for the preview. This will be remove in new ver
 <table>
   <tr>
        <td align="center"><a href="https://github.com/jemisgoti"><img src="https://avatars.githubusercontent.com/u/46031164" width="100px;" height="100px;" alt=""/><br /><sub><b>Jemis Goti</b></sub></a></td>
-      <td align="center"><a href="https://github.com/furkanarslann"><img src="https://avatars.githubusercontent.com/u/75033711?v=4 width="100px;" height="100px;" alt=""/><br /><sub><b>Furkan Arslan</b></sub></a></td>
+      <td align="center"><a href="https://github.com/furkanarslann"><img src="https://avatars.githubusercontent.com/u/75033711" width="100px;" height="100px;" alt=""/><br /><sub><b>Furkan Arslan</b></sub></a></td>
  
 </tr>
 </table>
@@ -103,3 +104,12 @@ TODO: Here is the few screenshot for the preview. This will be remove in new ver
 ## Thanks
 
 Thank you for using this package and keep supporting opensource community.
+
+
+
+
+[license_badge]: https://img.shields.io/badge/license-BSD-blue.svg
+[license_link]: https://opensource.org/licenses/BSD
+[hyper_lint_badge]: https://img.shields.io/badge/style-hyper_lint-ee7600.svg
+[hyper_lint_link]: https://pub.dev/packages/hyper_lint
+
