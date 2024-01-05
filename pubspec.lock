@@ -60,13 +60,13 @@ packages:
     source: sdk
     version: "0.0.0"
   hyper_lint:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: hyper_lint
-      sha256: "08e3c21edefa36b24efb601b088fff3b52b73334e21e2ffe35fb0489c5ba272c"
+      sha256: "6d214b6e6e38d15f087ed9b67d461d026c9cdebb64c7a46cf1fb80350e536d33"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.2"
   matcher:
     dependency: transitive
     description:

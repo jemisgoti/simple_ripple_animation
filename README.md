@@ -1,4 +1,4 @@
-<img src="readme_assets/banner.png"/>
+<img src="https://jemisgoti.github.io/simple_ripple_animation/readme_assets/banner.png"/>
 
 ## Simple Ripple Animation
 [![style: very good analysis][hyper_lint_badge]][hyper_lint_link]
@@ -83,11 +83,11 @@ Parameter defined for `RippleAnimation` widget:
 TODO: Here is the few screenshot for the preview. This will be remove in new verison becuase pub.dev now support screenshot.
 <table>
   <tr>
-       <td align="center"> <img src="readme_assets/image1.png" height="500px"  alt=""/><br /><sub><b>Mobile</b></sub> </td>     
-         <td align="center"> <img src="readme_assets/tab.png"   alt=""/><br /><sub><b>Tablet</b></sub> </td>  </tr>   
+       <td align="center"> <img src="https://jemisgoti.github.io/simple_ripple_animation/readme_assets/image1.png" height="500px"  alt=""/><br /><sub><b>Mobile</b></sub> </td>     
+         <td align="center"> <img src="https://jemisgoti.github.io/simple_ripple_animation/readme_assets/tab.png"  height="500px"  alt=""/><br /><sub><b>Tablet</b></sub> </td>  </tr>   
            <tr>
-       <td align="center"> <img src="readme_assets/desktop.png"   alt=""/><br /><sub><b>Desktop</b></sub> </td>     
-         <td align="center"> <img src="readme_assets/web.png"   alt=""/><br /><sub><b>Web</b></sub> </td>  </tr> 
+       <td align="center"> <img src="https://jemisgoti.github.io/simple_ripple_animation/readme_assets/desktop.png"   height="500px" alt=""/><br /><sub><b>Desktop</b></sub> </td>     
+         <td align="center"> <img src="https://jemisgoti.github.io/simple_ripple_animation/readme_assets/web.png"  height="500px"  alt=""/><br /><sub><b>Web</b></sub> </td>  </tr> 
       
 </table>
 

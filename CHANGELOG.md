@@ -1,3 +1,3 @@
-## 0.0.9
+## 0.1.0
 
-* Minimum dart version revert back to 2.17.0
+* Dependency issue is fixed
