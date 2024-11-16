@@ -1,4 +1,4 @@
-<img src="https://jemisgoti.github.io/simple_ripple_animation/readme_assets/banner.png"/>
+<img src="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/4a901786d9a99ead73dff64d324097aac5f7b41b/readme_assets/banner.png"/>
 
 ## Simple Ripple Animation
 [![style: very good analysis][hyper_lint_badge]][hyper_lint_link]
@@ -20,7 +20,8 @@ Parameter defined for `RippleAnimation` widget:
 |------|------------|-------------|
 | child | Widget | This child will be placed at center of the animation. |
 | delay | Duration | This will be delay between two ripple wave. |
-| minRadius | int | Minimum radius of the ripple wave. |
+| minRadius | double | Minimum radius of the ripple wave. |
+| maxRadius | double | Maximum radius of the ripple wave. |
 | color | Color | Color of the animation. |
 | ripplesCount | int | number of rippleCount in the wave. |
 | duration | Duration | duration of the animation |
@@ -68,6 +69,7 @@ Parameter defined for `RippleAnimation` widget:
                 delay: const Duration(milliseconds: 300),
                 repeat: true,
                 minRadius: 75,
+                maxRadius: 140,
                 ripplesCount: 6,
                 duration: const Duration(milliseconds: 6 * 300),
               )

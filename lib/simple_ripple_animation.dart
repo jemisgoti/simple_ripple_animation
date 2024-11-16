@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 /// You can use whatever widget as a [child], when you don't need to provide any
 /// [child], just provide an empty Container().
 /// [delay] is using a [Timer] for delaying the animation, it's zero by default.
-/// You can set [repeat] to true for making a paulsing effect.
+/// You can set [repeat] to true for making a pulsing effect.
 class RippleAnimation extends StatefulWidget {
   ///initialize the ripple animation
   const RippleAnimation({
@@ -14,6 +14,7 @@ class RippleAnimation extends StatefulWidget {
     this.delay = Duration.zero,
     this.repeat = false,
     this.minRadius = 60,
+    this.maxRadius = 120,
     this.ripplesCount = 5,
     this.duration = const Duration(milliseconds: 2300),
     super.key,
@@ -28,6 +29,9 @@ class RippleAnimation extends StatefulWidget {
   /// [double] minimum radius of the animation
   final double minRadius;
 
+  /// [double] maximum radius of the animation
+  final double maxRadius; // Added maxRadius field
+
   /// [Color] color of the animation
   final Color color;
 
@@ -37,7 +41,7 @@ class RippleAnimation extends StatefulWidget {
   /// [Duration]  of the animation
   final Duration duration;
 
-  /// [bool] provide true if u want repeat ani9mation
+  /// [bool] provide true if u want repeat animation
   final bool repeat;
 
   @override
@@ -46,7 +50,7 @@ class RippleAnimation extends StatefulWidget {
 
 ///state of the animation
 class RippleAnimationState extends State<RippleAnimation>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin<RippleAnimation> {
   AnimationController? _controller;
 
   @override
@@ -82,13 +86,14 @@ class RippleAnimationState extends State<RippleAnimation>
           _controller,
           color: widget.color,
           minRadius: widget.minRadius,
+          maxRadius: widget.maxRadius, // Passed maxRadius to painter
           wavesCount: widget.ripplesCount + 2,
         ),
         child: widget.child,
       );
 }
 
-/// Creating a Circular painter for clipping the rects and creating circle shape
+/// Creating a Circular painter for clipping the rect and creating circle shape
 class CirclePainter extends CustomPainter {
   ///initialize the painter
   CirclePainter(
@@ -96,6 +101,7 @@ class CirclePainter extends CustomPainter {
     required this.wavesCount,
     required this.color,
     this.minRadius,
+    this.maxRadius, // Added maxRadius parameter
   }) : super(repaint: animation);
 
   ///[Color] of the painter
@@ -103,6 +109,9 @@ class CirclePainter extends CustomPainter {
 
   ///[double] minimum radius of the painter
   final double? minRadius;
+
+  ///[double] maximum radius of the painter
+  final double? maxRadius; // Added maxRadius field
 
   ///[int] number of wave count in the animation
   final int wavesCount;
@@ -118,6 +127,7 @@ class CirclePainter extends CustomPainter {
         canvas,
         rect,
         minRadius,
+        maxRadius, // Passed maxRadius to circle method
         wave,
         animation!.value,
         wavesCount,
@@ -131,6 +141,7 @@ class CirclePainter extends CustomPainter {
     Canvas canvas,
     Rect rect,
     double? minRadius,
+    double? maxRadius, // Added maxRadius parameter
     int wave,
     double value,
     int? length,
@@ -143,7 +154,8 @@ class CirclePainter extends CustomPainter {
           (1 - ((wave - 1) / length!) - value).clamp(0.0, 1.0);
       color = color.withOpacity(opacity);
 
-      r = minRadius! * (1 + (wave * value)) * value;
+      final double sizeFactor = minRadius! + ((maxRadius! - minRadius) * value);
+      r = sizeFactor * (1 + (wave * value)) * value;
       final Paint paint = Paint()..color = color;
       canvas.drawCircle(rect.center, r, paint);
     }

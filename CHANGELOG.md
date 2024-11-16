@@ -1,3 +1,3 @@
 ## 0.1.0
 
-* Dependency issue is fixed
+* Max  Radius parameter added to control size of ripple

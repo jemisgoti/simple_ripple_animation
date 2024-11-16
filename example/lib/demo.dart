@@ -33,10 +33,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 repeat: true,
                 minRadius: 75,
                 ripplesCount: 6,
+                maxRadius: 140,
+            
                 duration: const Duration(milliseconds: 6 * 300),
                 child: CircleAvatar(
                   minRadius: 75,
                   maxRadius: 75,
+                  
                   backgroundImage: NetworkImage(Constants.avtarUrl),
                 ),
               ),
