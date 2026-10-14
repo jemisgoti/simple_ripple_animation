@@ -1,29 +1,54 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:example/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:simple_ripple_animation/simple_ripple_animation.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets(
+    'Demo app loads, renders ripple animation, and switches presets',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(const MyApp());
+      await tester.pump();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      // Verify title and ripple animation presence
+      expect(find.text('Simple Ripple Animation'), findsOneWidget);
+      expect(find.byType(RippleAnimation), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      // Verify preset chips exist
+      expect(find.text('Avatar'), findsOneWidget);
+      expect(find.text('Call'), findsOneWidget);
+      expect(find.text('Voice'), findsOneWidget);
+      expect(find.text('Radar'), findsOneWidget);
+      expect(find.text('Alert'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
+      // Tap Call preset
+      await tester.tap(find.text('Call'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+
+      // Verify Call icon appears
+      expect(find.byIcon(Icons.phone_in_talk_rounded), findsOneWidget);
+
+      // Tap Voice preset
+      await tester.tap(find.text('Voice'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(find.byIcon(Icons.mic_rounded), findsOneWidget);
+
+      // Tap theme toggle icon
+      final Finder themeToggleFinder = find.byTooltip('Toggle Theme');
+      expect(themeToggleFinder, findsOneWidget);
+      await tester.tap(themeToggleFinder);
+      await tester.pump();
+
+      // Tap Copy button
+      final Finder copyButtonFinder = find.text('Copy');
+      expect(copyButtonFinder, findsOneWidget);
+      await tester.tap(copyButtonFinder, warnIfMissed: false);
+      await tester.pump();
+
+      // Advance animation smoothly
+      await tester.pump(const Duration(milliseconds: 500));
+    },
+  );
 }

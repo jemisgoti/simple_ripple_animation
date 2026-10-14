@@ -1,6 +1,6 @@
 name: simple_ripple_animation
-description: This package provide ripple animation widget that is easy to set up and customise, and it looks beautiful in any color you choose.
-version: 0.1.0
+description: A highly customizable Flutter ripple and pulse animation widget for creating beautiful glowing waves, radar effects, and pulsing buttons across all platforms.
+version: 0.1.1
 homepage: https://github.com/jemisgoti/simple_ripple_animation
 repository: https://github.com/jemisgoti/simple_ripple_animation
 issue_tracker: https://github.com/jemisgoti/simple_ripple_animation/issues
@@ -28,8 +28,6 @@ screenshots:
     path: readme_assets/web.png
   - description: 'This screenshot shows the animation in Phone'
     path: readme_assets/image1.png
-  - description: 'This screenshot shows the animation in Tablet'
-    path: readme_assets/tab.png
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
