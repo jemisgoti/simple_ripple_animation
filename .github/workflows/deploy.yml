@@ -61,13 +61,6 @@ jobs:
         with:
           path: example/build/web
 
-      - name: Deploy to gh-pages Branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./example/build/web
-          force_orphan: true
-
   deploy-pages:
     needs: build-and-test
     runs-on: ubuntu-latest
