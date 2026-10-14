@@ -42,18 +42,12 @@
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/image1.png" width="220" alt="Mobile Ripple Animation" /><br />
-      <b>Mobile</b>
+      <img src="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/image1.png" width="240" alt="Mobile Ripple Animation" /><br />
+      <b>Mobile (iOS & Android)</b>
     </td>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/tab.png" width="320" alt="Tablet Ripple Animation" /><br />
-      <b>Tablet</b>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" colspan="2">
-      <img src="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/desktop.png" width="560" alt="Desktop & Web Ripple Animation" /><br />
-      <b>Desktop & Web</b>
+      <img src="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/desktop.png" width="540" alt="Desktop & Web Ripple Animation" /><br />
+      <b>macOS & Web Desktop</b>
     </td>
   </tr>
 </table>
