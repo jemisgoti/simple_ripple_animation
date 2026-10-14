@@ -5,29 +5,55 @@ void main() {
   runApp(const MyApp());
 }
 
-///Main material app of the app
-class MyApp extends StatelessWidget {
-  ///initialize the material app
+/// Main material app of the demo
+class MyApp extends StatefulWidget {
+  /// Initialize the material app
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: const MaterialColor(0xFF091D36, <int, Color>{
-            50: Color(0xFFE1E4E7),
-            100: Color(0xFFB5BBC3),
-            200: Color(0xFF848E9B),
-            300: Color(0xFF536172),
-            400: Color(0xFF2E3F54),
-            500: Color(0xff091D36),
-            600: Color(0xFF081A30),
-            700: Color(0xFF061529),
-            800: Color(0xFF051122),
-            900: Color(0xFF020A16),
-          }),
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.light;
+
+  void _toggleTheme() {
+    setState(() {
+      _themeMode =
+          _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Simple Ripple Animation Demo & Playground',
+      debugShowCheckedModeBanner: false,
+      themeMode: _themeMode,
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        colorSchemeSeed: const Color(0xFF8B5CF6),
+        scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+        cardColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Color(0xFF0F172A),
+          elevation: 0,
         ),
-        home: const MyHomePage(title: 'Ripple animation demo'),
-      );
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        colorSchemeSeed: const Color(0xFF8B5CF6),
+        scaffoldBackgroundColor: const Color(0xFF0F172A),
+        cardColor: const Color(0xFF1E293B),
+      ),
+      home: MyHomePage(
+        title: 'Simple Ripple Animation',
+        onToggleTheme: _toggleTheme,
+        isDarkMode: _themeMode == ThemeMode.dark,
+      ),
+    );
+  }
 }

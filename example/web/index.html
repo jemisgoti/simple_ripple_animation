@@ -1,59 +1,271 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <!-- iOS meta tags & icons -->
+  <!-- Primary SEO Meta Tags -->
+  <title>Simple Ripple Animation - Interactive Flutter Playground & Live Demo</title>
+  <meta name="title" content="Simple Ripple Animation - Interactive Flutter Playground & Live Demo">
+  <meta name="description" content="Explore Simple Ripple Animation for Flutter. Interactive live web playground to configure ripple waves, custom radius, vibrant colors, duration, repeat modes, and generate production-ready Flutter code.">
+  <meta name="keywords" content="flutter ripple animation, flutter pulse animation, radar animation flutter, simple ripple animation, circular wave animation flutter, glowing avatar flutter, audio call ripple, flutter widget playground, flutter ui animation">
+  <meta name="author" content="Jemis Goti">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jemisgoti.github.io/simple_ripple_animation/">
+
+  <!-- Theme Color (Default Light Theme) -->
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B132B" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Simple Ripple Animation">
+  <meta property="og:url" content="https://jemisgoti.github.io/simple_ripple_animation/">
+  <meta property="og:title" content="Simple Ripple Animation - Interactive Flutter Playground & Live Demo">
+  <meta property="og:description" content="Interactive live demo for simple_ripple_animation Flutter package. Test ripple waves, radius, colors, duration, and copy generated Flutter code.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/banner.png">
+  <meta property="og:image:alt" content="Simple Ripple Animation for Flutter Banner">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://jemisgoti.github.io/simple_ripple_animation/">
+  <meta name="twitter:title" content="Simple Ripple Animation - Interactive Flutter Playground & Live Demo">
+  <meta name="twitter:description" content="Interactive live demo for simple_ripple_animation Flutter package. Test ripple waves, radius, colors, duration, and copy generated Flutter code.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/banner.png">
+  <meta name="twitter:creator" content="@jemisgoti">
+
+  <!-- iOS Meta Tags & Icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="example">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Ripple Animation">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>example</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="manifest" href="manifest.json">
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
+  <!-- Typography Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data Schema for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Simple Ripple Animation Playground",
+    "url": "https://jemisgoti.github.io/simple_ripple_animation/",
+    "description": "Interactive online playground and demo for simple_ripple_animation Flutter package. Configure concentric ripple waves, glowing avatars, radar effects, and copy generated code.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Jemis Goti",
+      "url": "https://github.com/jemisgoti"
+    }
+  }
   </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+
+  <style>
+    /* Clean loading state styled for default light theme */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+
+    #loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .pulse-loader {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 24px;
+    }
+
+    .pulse-circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(139, 92, 246, 0.25);
+      border-radius: 50%;
+      animation: pulseWave 2s infinite ease-out;
+    }
+
+    .pulse-circle:nth-child(2) {
+      animation-delay: 0.6s;
+    }
+
+    .pulse-circle:nth-child(3) {
+      animation-delay: 1.2s;
+    }
+
+    .pulse-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+      border-radius: 50%;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+    }
+
+    @keyframes pulseWave {
+      0% {
+        transform: scale(0.6);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+    }
+
+    .loading-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+
+    .loading-subtitle {
+      font-size: 13px;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    /* SEO Crawler Semantic Content */
+    .seo-semantic-content {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
 </head>
 <body>
+  <!-- Semantic HTML for Search Engine Crawlers & Fallback -->
+  <div class="seo-semantic-content" aria-hidden="true">
+    <header>
+      <h1>Simple Ripple Animation for Flutter</h1>
+      <p>A lightweight, high-performance Flutter package for creating concentric circular ripple animations, pulsing avatar glows, radar beacons, and call-ringing waves across Android, iOS, Web, macOS, Windows, and Linux.</p>
+    </header>
+    <main>
+      <section>
+        <h2>Interactive Playground & Customization Features</h2>
+        <p>Test ripple animation parameters live in your browser: minimum radius, maximum radius, wave count, duration in milliseconds, delay, repeat pulse, and custom color palettes.</p>
+        <ul>
+          <li>Avatar Profile Pulse Effect</li>
+          <li>Incoming Phone Call Ringing Waves</li>
+          <li>Voice Assistant Microphone Pulse</li>
+          <li>Radar and Sonar Beacon Scanner</li>
+          <li>Notification Alert Pulse Badge</li>
+          <li>Audio and Music Visualizer Button</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Properties Reference Table</h2>
+        <table>
+          <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+          <tr><td>child</td><td>Widget</td><td>required</td><td>Center widget around which ripples radiate</td></tr>
+          <tr><td>color</td><td>Color</td><td>Colors.black</td><td>Color of ripple animation</td></tr>
+          <tr><td>minRadius</td><td>double</td><td>60.0</td><td>Minimum inner radius of waves</td></tr>
+          <tr><td>maxRadius</td><td>double</td><td>120.0</td><td>Maximum outer radius of waves</td></tr>
+          <tr><td>ripplesCount</td><td>int</td><td>5</td><td>Number of concentric waves</td></tr>
+          <tr><td>duration</td><td>Duration</td><td>Duration(milliseconds: 2300)</td><td>Cycle duration</td></tr>
+          <tr><td>delay</td><td>Duration</td><td>Duration.zero</td><td>Delay before starting</td></tr>
+          <tr><td>repeat</td><td>bool</td><td>false</td><td>Whether to repeat pulse continuously</td></tr>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <!-- Loading Animation (Removed once Flutter mounts) -->
+  <div id="loading-container" role="status" aria-live="polite">
+    <div class="pulse-loader">
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-center"></div>
+    </div>
+    <div class="loading-title">Simple Ripple Animation</div>
+    <div class="loading-subtitle">Initializing Flutter Web Playground...</div>
+  </div>
+
+  <noscript>
+    <div style="padding: 24px; text-align: center; font-family: sans-serif;">
+      <h2>JavaScript Required</h2>
+      <p>Please enable JavaScript to run the interactive Simple Ripple Animation Flutter Web Playground.</p>
+      <p>Visit the GitHub repository at <a href="https://github.com/jemisgoti/simple_ripple_animation">https://github.com/jemisgoti/simple_ripple_animation</a></p>
+    </div>
+  </noscript>
+
+  <script src="flutter_bootstrap.js" async></script>
   <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
+    function removeLoader() {
+      const loader = document.getElementById('loading-container');
+      if (loader && loader.getAttribute('data-hidden') !== 'true') {
+        loader.setAttribute('data-hidden', 'true');
+        loader.style.pointerEvents = 'none';
+        loader.style.opacity = '0';
+        setTimeout(function() {
+          if (loader && loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        }, 400);
+      }
+    }
+
+    // Modern Flutter first frame event
+    window.addEventListener('flutter-first-frame', removeLoader);
+
+    // Watch for Flutter DOM elements mounting
+    if (window.MutationObserver) {
+      const observer = new MutationObserver(function() {
+        if (document.querySelector('flutter-view, flt-glass-pane, flt-scene-host, [flt-renderer]')) {
+          removeLoader();
+          observer.disconnect();
         }
       });
-    });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    // Guaranteed fallback timer (removes splash screen after max 3.5s)
+    setTimeout(removeLoader, 3500);
   </script>
 </body>
 </html>

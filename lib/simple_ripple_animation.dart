@@ -1,3 +1,6 @@
+/// A simple, customizable ripple animation widget for Flutter applications.
+library simple_ripple_animation;
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -48,34 +51,31 @@ class RippleAnimation extends StatefulWidget {
   RippleAnimationState createState() => RippleAnimationState();
 }
 
-///state of the animation
+/// State of the [RippleAnimation] widget.
 class RippleAnimationState extends State<RippleAnimation>
     with TickerProviderStateMixin<RippleAnimation> {
   AnimationController? _controller;
+  Timer? _delayTimer;
 
   @override
   void initState() {
+    super.initState();
     _controller = AnimationController(
       duration: widget.duration,
       vsync: this,
     );
 
-    Timer? animationTimer;
-
-    animationTimer = Timer(widget.delay, () {
+    _delayTimer = Timer(widget.delay, () {
       if (_controller != null && mounted) {
         // repeating or just forwarding the animation once.
         widget.repeat ? _controller!.repeat() : _controller!.forward();
       }
-      // Cancel the timer when it's no longer needed.
-      animationTimer?.cancel();
     });
-
-    super.initState();
   }
 
   @override
   void dispose() {
+    _delayTimer?.cancel();
     _controller?.dispose();
     super.dispose();
   }
@@ -116,7 +116,7 @@ class CirclePainter extends CustomPainter {
   ///[int] number of wave count in the animation
   final int wavesCount;
 
-  ///[Color] of the painter
+  /// Animation driving the ripple wave expansion and fade.
   final Animation<double>? animation;
 
   @override
@@ -152,7 +152,7 @@ class CirclePainter extends CustomPainter {
     if (wave != 0) {
       final double opacity =
           (1 - ((wave - 1) / length!) - value).clamp(0.0, 1.0);
-      color = color.withOpacity(opacity);
+      color = color.withValues(alpha: opacity);
 
       final double sizeFactor = minRadius! + ((maxRadius! - minRadius) * value);
       r = sizeFactor * (1 + (wave * value)) * value;

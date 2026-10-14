@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Install Package Dependencies
+        run: flutter pub get
+
+      - name: Install Example Dependencies
+        working-directory: ./example
+        run: flutter pub get
+
+      - name: Check Formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze Package
+        run: flutter analyze
+
+      - name: Run Package Tests with Coverage
+        run: flutter test --coverage
+
+      - name: Check Example
+        working-directory: ./example
+        run: |
+          flutter analyze
+          flutter test
