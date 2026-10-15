@@ -27,7 +27,7 @@ screenshots:
   - description: 'This screenshot shows the animation in web'
     path: readme_assets/web.png
   - description: 'This screenshot shows the animation in Phone'
-    path: readme_assets/image1.png
+    path: readme_assets/mobile.png
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

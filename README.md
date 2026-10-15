@@ -21,7 +21,7 @@
 
 ### 🌐 Live Interactive Playground
 
-> **Test before you install:** Try the live web playground at **[jemisgoti.github.io/simple_ripple_animation](https://jemisgoti.github.io/simple_ripple_animation/)** to tweak ripples, colors, radius, and timing in real-time, and copy ready-to-use Flutter code!
+Explore the **[Live Demo](https://jemisgoti.github.io/simple_ripple_animation/)** to test ripples, customize parameters, and generate Flutter code in real time.
 
 ---
 
@@ -42,7 +42,7 @@
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/image1.png" width="240" alt="Mobile Ripple Animation" /><br />
+      <img src="https://raw.githubusercontent.com/jemisgoti/simple_ripple_animation/main/readme_assets/mobile.png" width="240" alt="Mobile Ripple Animation" /><br />
       <b>Mobile (iOS & Android)</b>
     </td>
     <td align="center">
